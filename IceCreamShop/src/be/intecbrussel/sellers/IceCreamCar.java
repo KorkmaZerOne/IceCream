@@ -1,40 +1,76 @@
 package be.intecbrussel.sellers;
 
 import be.intecbrussel.eatables.Cone;
-import be.intecbrussel.eatables.Flavor;
+import be.intecbrussel.eatables.Cone.Flavor;
 import be.intecbrussel.eatables.IceRocket;
 import be.intecbrussel.eatables.Magnum;
-import be.intecbrussel.eatables.MagnumType;
+import be.intecbrussel.eatables.Magnum.MagnumType;
 
 public class IceCreamCar implements IceCreamSeller{
 
-	private PriceList pricelist;
+	private PriceList priceList;
 	private Stock stock;
 	private double profit;
 	
+	IceCreamCar(){
+		
+	}
+	public IceCreamCar(PriceList priceList , Stock stock){
+		this.priceList = priceList;
+		this.stock = stock;
+	}
 	public double getProfit() {
 		return 0;
 	}
-
-	public Cone orderConeFlavor() {
-		return null;
+	public Cone orderCone(Flavor [] balls) throws NoMoreIceCreamException  {
+		System.out.println("New order: A Cone");
+		return prepareCone(balls);
+	}
+	public Cone prepareCone(Flavor [] balls) throws NoMoreIceCreamException {
+		if (stock.getBalls()>=balls.length && stock.getCones()>0) {
+			System.out.println("Cone is preparing...");
+			System.out.println("Cone is ready");
+			profit += priceList.getBallPrice();
+			stock.setBalls(stock.getBalls()- balls.length);
+			stock.setCones(stock.getCones()- 1);
+			return new Cone(balls);
+		}else {
+			throw new NoMoreIceCreamException("Sorry! no more Cone!");
+			}
 	}
 	
-	public Cone prepareCone() {
-		
+	public IceRocket orderIceRocket() throws NoMoreIceCreamException  {
+		System.out.println("New order: An Ice Rocket");
+		return prepareIceRocket();
 	}
-
-	public IceRocket orderIceRocket() {
-		return null;
+	public IceRocket prepareIceRocket() throws NoMoreIceCreamException {
+		if(stock.getIceRockets()>0) {
+			System.out.println("IceRocket is preparing...");
+			System.out.println("Ice Rocket is ready");
+			profit +=  priceList.getRocketPrice();
+			stock.setIceRockets(stock.getIceRockets()-1);
+			return new IceRocket();
+		}else {
+			throw new NoMoreIceCreamException("Sorry! no more Ice Rocket!");
+		}
 	}
-	public IceRocket prepareIceRocket(IceRocket rocket) {
-		
+	public Magnum orderMagnum(MagnumType type) throws NoMoreIceCreamException  {
+		System.out.println("New order: A Magnum");
+			return prepareMagnum(type);		
 	}
-	public Magnum orderMagnum() {
-		return null;
+	public Magnum prepareMagnum(MagnumType type) throws NoMoreIceCreamException{
+		if(stock.getMagni()>0) {
+			System.out.println("Magnum is preparing...");
+			System.out.println("Magnum is ready");
+			profit += priceList.getMagnumPrice(type);
+			stock.setMagni(stock.getMagni()-1);
+			return new Magnum();
+		}else {
+			throw new NoMoreIceCreamException("Sorry! no more Magnum!");
+		}
 	}
-	public Magnum prepareMagnum(MagnumType type) {
-		
+	@Override
+	public String toString() {
+		return "IceCreamSalon [ Profit: " + profit + "]";
 	}
-
 }

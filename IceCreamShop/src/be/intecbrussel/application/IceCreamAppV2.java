@@ -1,38 +1,36 @@
 package be.intecbrussel.application;
 
-import java.util.Arrays;
-
 import be.intecbrussel.eatables.Cone;
-import be.intecbrussel.eatables.Cone.Flavor;
 import be.intecbrussel.eatables.Eatable;
 import be.intecbrussel.eatables.IceRocket;
 import be.intecbrussel.eatables.Magnum;
+import be.intecbrussel.eatables.Cone.Flavor;
 import be.intecbrussel.eatables.Magnum.MagnumType;
-import be.intecbrussel.sellers.IceCreamSalon;
-import be.intecbrussel.sellers.IceCreamSeller;
+import be.intecbrussel.sellers.IceCreamCar;
 import be.intecbrussel.sellers.NoMoreIceCreamException;
 import be.intecbrussel.sellers.PriceList;
+import be.intecbrussel.sellers.Stock;
 
-public class IceCreamApp {
+public class IceCreamAppV2 {
 
 	public static void main(String[] args) {
 		
-		IceCreamSeller iceDreamSalon = new IceCreamSalon(new PriceList(1.5 , 1.0 , 2.0));
+		IceCreamCar iceDreamCar = new IceCreamCar(new PriceList(1.5 , 1.0 , 2.0) , new Stock(2 , 2 , 0 , 2));
 		
 		try {
-			iceDreamSalon.orderCone(new Flavor [] {Flavor.BANANA});
+			iceDreamCar.orderCone(new Flavor [] {Flavor.BANANA});
 		} catch (NoMoreIceCreamException e) {
-			e.printStackTrace();
+			System.out.println(e);;
 		}
 		try {
-			iceDreamSalon.orderIceRocket();
+			iceDreamCar.orderIceRocket();
 		} catch (NoMoreIceCreamException e) {
-			e.printStackTrace();
+			System.out.println(e);;
 		}
 		try {
-			iceDreamSalon.orderMagnum(MagnumType.ALPINENUTS);
+			iceDreamCar.orderMagnum(MagnumType.ALPINENUTS);
 		} catch (NoMoreIceCreamException e) {
-			e.printStackTrace();
+			System.out.println();
 		}
 		
 		Eatable iceCream1 = new Cone(new Flavor[] {Flavor.BANANA});
@@ -44,10 +42,8 @@ public class IceCreamApp {
 		iceCreams [0].eat();
 		iceCreams [1].eat();
 		iceCreams [2].eat();
-		
-		System.out.println("Daily Raport : " + iceDreamSalon.toString());
-		
-		
+	
+		System.out.println("Daily Raport : " + iceDreamCar.toString());
 	}
 
 }

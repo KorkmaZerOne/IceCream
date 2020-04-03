@@ -1,5 +1,7 @@
 package be.intecbrussel.eatables;
 
+import be.intecbrussel.sellers.Stock;
+
 public class Magnum implements Eatable{
 	public enum MagnumType {
 		
@@ -19,8 +21,11 @@ public class Magnum implements Eatable{
 		this.type = type;
 	}
 	public void eat() {
-		System.out.println("Immm... my favorite MAGNUM is " +this.type);
-		
+		if (Stock.getMagni()>0) {
+			System.out.println("Immm... my favorite MAGNUM is " +this.type);
+		}else {
+			System.out.println("I can't eat Magnum! :(");
+		}
 	}
 	public MagnumType getType() {
 		return type;

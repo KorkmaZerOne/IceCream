@@ -2,6 +2,8 @@ package be.intecbrussel.eatables;
 
 import java.util.Arrays;
 
+import be.intecbrussel.sellers.Stock;
+
 public class Cone implements Eatable{
 	public enum Flavor {
 		
@@ -25,6 +27,10 @@ public class Cone implements Eatable{
 		this.balls = balls;
 	}
 	public void eat() {
-		System.out.println("Immm... my favorite cone is " + Arrays.toString(balls));
+		if(Stock.getCones()>0) {
+			System.out.println("Immm... my favorite cone is " + Arrays.toString(balls));
+		}else {
+			System.out.println("I can't eat Cone! :(");
+		}
 	}
 }

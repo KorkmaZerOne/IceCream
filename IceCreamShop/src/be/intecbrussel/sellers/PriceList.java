@@ -31,9 +31,9 @@ public class PriceList {
 	public double getMagnumPrice(MagnumType type) {
 		double magnumPrice;
 		if (type != MagnumType.ALPINENUTS || type != MagnumType.ROMANTICSTRAWBERRIES) {
-			magnumPrice = this.magnumStandartPrice;
-		} else {
 			magnumPrice = this.magnumStandartPrice*1.5;
+		} else {
+			magnumPrice = this.magnumStandartPrice;
 		}
 		return magnumPrice;
 	}

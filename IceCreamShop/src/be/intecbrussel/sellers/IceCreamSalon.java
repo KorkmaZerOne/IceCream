@@ -14,23 +14,22 @@ public class IceCreamSalon implements IceCreamSeller{
 	public IceCreamSalon(PriceList priceList){
 		this.priceList = priceList;
 	}
-	
 	public double getProfit() {
 		return this.totalProfit;
 	}
-	public Cone orderConeFlavor () {
-		System.out.println("New order: Cone");
+	public Cone orderCone (Flavor [] balls) {
+		System.out.println("New order: A Cone");
 		totalProfit +=  priceList.getBallPrice();
-		return new Cone();
+		return new Cone(balls);
 	}
 	public IceRocket orderIceRocket() {
-		System.out.println("New order: Ice Rocket");
+		System.out.println("New order: An Ice Rocket");
 		totalProfit +=  priceList.getRocketPrice();
 		return new IceRocket();
 	}
-	public Magnum orderMagnum() {
-		System.out.println("New order: Magnum");
-		totalProfit += priceList.getMagnumPrice(Magnum.MagnumType.ALPINENUTS);
+	public Magnum orderMagnum(MagnumType type) {
+		System.out.println("New order: A Magnum");
+		totalProfit += priceList.getMagnumPrice(type);
 		return new Magnum();
 	}
 	@Override
