@@ -1,15 +1,9 @@
 package be.intecbrussel.application;
 
-import be.intecbrussel.eatables.Cone;
 import be.intecbrussel.eatables.Cone.Flavor;
-import be.intecbrussel.eatables.Eatable;
-import be.intecbrussel.eatables.IceRocket;
-import be.intecbrussel.eatables.Magnum;
+import be.intecbrussel.eatables.*;
 import be.intecbrussel.eatables.Magnum.MagnumType;
-import be.intecbrussel.sellers.IceCreamSalon;
-import be.intecbrussel.sellers.IceCreamSeller;
-import be.intecbrussel.sellers.NoMoreIceCreamException;
-import be.intecbrussel.sellers.PriceList;
+import be.intecbrussel.sellers.*;
 
 public class IceCreamApp {
 
@@ -17,7 +11,7 @@ public class IceCreamApp {
 		
 		IceCreamSeller iceDreamSalon = new IceCreamSalon(new PriceList(1.5 , 1.0 , 2.0));
 		
-		Eatable iceCream1 =iceDreamSalon.orderCone(new Flavor[] {Flavor.BANANA, Flavor.CHOCOLATE});
+		Eatable iceCream1 = iceDreamSalon.orderCone(new Flavor[] {Flavor.BANANA, Flavor.CHOCOLATE});
 		Eatable iceCream2 = iceDreamSalon.orderIceRocket();
 		Eatable iceCream3 = iceDreamSalon.orderMagnum(MagnumType.ALPINENUTS);
 		
@@ -28,7 +22,6 @@ public class IceCreamApp {
 		iceCreams [2].eat();
 		
 		System.out.println("Daily Raport : " + iceDreamSalon.toString());
-		
 	}
 
 }

@@ -27,10 +27,6 @@ public class Cone implements Eatable{
 		this.balls = balls;
 	}
 	public void eat() {
-		if(Stock.getCones()>0) {
-			System.out.println("Immm... my favorite cone is " + Arrays.toString(balls));
-		}else {
-			System.out.println("I can't eat Cone! :(");
-		}
+		System.out.println("Immm... my favorite cone is " + Arrays.toString(balls));
 	}
 }

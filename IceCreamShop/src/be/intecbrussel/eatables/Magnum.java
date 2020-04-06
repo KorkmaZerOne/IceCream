@@ -21,11 +21,7 @@ public class Magnum implements Eatable{
 		this.type = type;
 	}
 	public void eat() {
-		if (Stock.getMagni()>0) {
-			System.out.println("Immm... my favorite MAGNUM is " +this.type);
-		}else {
-			System.out.println("I can't eat Magnum! :(");
-		}
+		System.out.println("Immm... my favorite MAGNUM is " +this.type);
 	}
 	public MagnumType getType() {
 		return type;

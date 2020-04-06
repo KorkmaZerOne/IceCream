@@ -2,10 +2,10 @@ package be.intecbrussel.sellers;
 
 public class Stock {
 
-	private static int iceRockets;
-	private static int cones;
-	private static int balls;
-	private static int magni;
+	private int iceRockets;
+	private int cones;
+	private int balls;
+	private int magni;
 	
 	public Stock(){
 		
@@ -17,25 +17,25 @@ public class Stock {
 		this.magni = magni;
 	}
 	
-	public static int getIceRockets() {
+	public int getIceRockets() {
 		return iceRockets;
 	}
 	public void setIceRockets(int iceRockets) {
 		this.iceRockets = iceRockets;
 	}
-	public static int getCones() {
+	public int getCones() {
 		return cones;
 	}
 	public void setCones(int cones) {
 		this.cones = cones;
 	}
-	public static int getBalls() {
+	public int getBalls() {
 		return balls;
 	}
 	public void setBalls(int balls) {
 		this.balls = balls;
 	}
-	public static int getMagni() {
+	public int getMagni() {
 		return magni;
 	}
 	public void setMagni(int magni) {

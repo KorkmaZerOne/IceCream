@@ -30,7 +30,7 @@ public class IceCreamSalon implements IceCreamSeller{
 	public Magnum orderMagnum(MagnumType type) {
 		System.out.println("New order: A Magnum");
 		totalProfit += priceList.getMagnumPrice(type);
-		return new Magnum();
+		return new Magnum(type);
 	}
 	@Override
 	public String toString() {

@@ -23,14 +23,16 @@ public class IceCreamCar implements IceCreamSeller{
 		return this.profit;
 	}
 	public Cone orderCone(Flavor [] balls) {
+		Cone cone = null;
+		
 		try {
 			System.out.println("New order: A Cone");
-
-			return prepareCone(balls);
+			cone = prepareCone(balls);
 		}catch(NoMoreIceCreamException ex){
 			System.out.println(ex.getMessage());
-			return new Cone();
 		}
+		
+		return cone;
 	}
 	public Cone prepareCone(Flavor [] balls) throws NoMoreIceCreamException {
 		if (stock.getBalls()>=balls.length && stock.getCones()>0) {
@@ -46,13 +48,16 @@ public class IceCreamCar implements IceCreamSeller{
 	}
 	
 	public IceRocket orderIceRocket() {
+		IceRocket iceRocket=null;
+		
 		try {
 			System.out.println("New order: An Ice Rocket");
-			return prepareIceRocket();
+			iceRocket = prepareIceRocket();
 		}catch(NoMoreIceCreamException ex) {
 			System.out.println(ex.getMessage());
-			return new IceRocket();
 		}
+		
+		return iceRocket;
 	}
 	public IceRocket prepareIceRocket() throws NoMoreIceCreamException {
 		if(stock.getIceRockets()>0) {
@@ -66,13 +71,16 @@ public class IceCreamCar implements IceCreamSeller{
 		}
 	}
 	public Magnum orderMagnum(MagnumType type) {
+		Magnum magnum=null;
+		
 		try {
-		System.out.println("New order: A Magnum");
-			return prepareMagnum(type);		
+			System.out.println("New order: A Magnum");
+			magnum =  prepareMagnum(type);		
 		}catch(NoMoreIceCreamException ex) {
 			System.out.println(ex.getMessage());
-			return new Magnum();
 		}
+		
+		return magnum;
 	}
 	public Magnum prepareMagnum(MagnumType type) throws NoMoreIceCreamException{
 		if(stock.getMagni()>0) {
