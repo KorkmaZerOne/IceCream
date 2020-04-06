@@ -16,34 +16,19 @@ public class IceCreamAppV2 {
 	public static void main(String[] args) {
 		
 		IceCreamCar iceDreamCar = new IceCreamCar(new PriceList(1.5 , 1.0 , 2.0) , new Stock(2 , 2 , 0 , 2));
-		
-		try {
-			iceDreamCar.orderCone(new Flavor [] {Flavor.BANANA});
-		} catch (NoMoreIceCreamException e) {
-			System.out.println(e);;
-		}
-		try {
-			iceDreamCar.orderIceRocket();
-		} catch (NoMoreIceCreamException e) {
-			System.out.println(e);;
-		}
-		try {
-			iceDreamCar.orderMagnum(MagnumType.ALPINENUTS);
-		} catch (NoMoreIceCreamException e) {
-			System.out.println();
-		}
-		
-		Eatable iceCream1 = new Cone(new Flavor[] {Flavor.BANANA});
-		Eatable iceCream2 = new IceRocket();
-		Eatable iceCream3 = new Magnum(MagnumType.ALPINENUTS);
+	
+		Eatable iceCream1 = iceDreamCar.orderCone(new Flavor [] {Flavor.BANANA,Flavor.BANANA,Flavor.STRAWBERRY});
+		Eatable iceCream2 = iceDreamCar.orderIceRocket();
+		Eatable iceCream3 = iceDreamCar.orderMagnum(MagnumType.ALPINENUTS);
 		
 		Eatable [] iceCreams = {iceCream1 , iceCream2 , iceCream3};
 		
-		iceCreams [0].eat();
-		iceCreams [1].eat();
-		iceCreams [2].eat();
+		for(int i=0; i<iceCreams.length; i++) {
+			iceCreams[i].eat();
+		}
 	
 		System.out.println("Daily Raport : " + iceDreamCar.toString());
+
 	}
 
 }

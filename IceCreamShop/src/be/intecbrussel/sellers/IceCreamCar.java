@@ -20,11 +20,17 @@ public class IceCreamCar implements IceCreamSeller{
 		this.stock = stock;
 	}
 	public double getProfit() {
-		return 0;
+		return this.profit;
 	}
-	public Cone orderCone(Flavor [] balls) throws NoMoreIceCreamException  {
-		System.out.println("New order: A Cone");
-		return prepareCone(balls);
+	public Cone orderCone(Flavor [] balls) {
+		try {
+			System.out.println("New order: A Cone");
+
+			return prepareCone(balls);
+		}catch(NoMoreIceCreamException ex){
+			System.out.println(ex.getMessage());
+			return new Cone();
+		}
 	}
 	public Cone prepareCone(Flavor [] balls) throws NoMoreIceCreamException {
 		if (stock.getBalls()>=balls.length && stock.getCones()>0) {
@@ -39,9 +45,14 @@ public class IceCreamCar implements IceCreamSeller{
 			}
 	}
 	
-	public IceRocket orderIceRocket() throws NoMoreIceCreamException  {
-		System.out.println("New order: An Ice Rocket");
-		return prepareIceRocket();
+	public IceRocket orderIceRocket() {
+		try {
+			System.out.println("New order: An Ice Rocket");
+			return prepareIceRocket();
+		}catch(NoMoreIceCreamException ex) {
+			System.out.println(ex.getMessage());
+			return new IceRocket();
+		}
 	}
 	public IceRocket prepareIceRocket() throws NoMoreIceCreamException {
 		if(stock.getIceRockets()>0) {
@@ -54,9 +65,14 @@ public class IceCreamCar implements IceCreamSeller{
 			throw new NoMoreIceCreamException("Sorry! no more Ice Rocket!");
 		}
 	}
-	public Magnum orderMagnum(MagnumType type) throws NoMoreIceCreamException  {
+	public Magnum orderMagnum(MagnumType type) {
+		try {
 		System.out.println("New order: A Magnum");
 			return prepareMagnum(type);		
+		}catch(NoMoreIceCreamException ex) {
+			System.out.println(ex.getMessage());
+			return new Magnum();
+		}
 	}
 	public Magnum prepareMagnum(MagnumType type) throws NoMoreIceCreamException{
 		if(stock.getMagni()>0) {
@@ -64,7 +80,7 @@ public class IceCreamCar implements IceCreamSeller{
 			System.out.println("Magnum is ready");
 			profit += priceList.getMagnumPrice(type);
 			stock.setMagni(stock.getMagni()-1);
-			return new Magnum();
+			return new Magnum(type);
 		}else {
 			throw new NoMoreIceCreamException("Sorry! no more Magnum!");
 		}

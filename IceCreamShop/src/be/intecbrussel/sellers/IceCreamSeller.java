@@ -8,9 +8,9 @@ import be.intecbrussel.eatables.Magnum.MagnumType;
 
 public interface IceCreamSeller extends Profitable {
 
-	Cone orderCone(Flavor [] balls) throws NoMoreIceCreamException;
+	Cone orderCone(Flavor [] balls);
 	
-	IceRocket orderIceRocket() throws NoMoreIceCreamException;
+	IceRocket orderIceRocket();
 	
-	Magnum orderMagnum(MagnumType type) throws NoMoreIceCreamException;
+	Magnum orderMagnum(MagnumType type) ;
 }

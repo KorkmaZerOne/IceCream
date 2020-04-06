@@ -4,7 +4,7 @@ public class Stock {
 
 	private static int iceRockets;
 	private static int cones;
-	private int balls;
+	private static int balls;
 	private static int magni;
 	
 	public Stock(){
@@ -29,7 +29,7 @@ public class Stock {
 	public void setCones(int cones) {
 		this.cones = cones;
 	}
-	public int getBalls() {
+	public static int getBalls() {
 		return balls;
 	}
 	public void setBalls(int balls) {
@@ -41,6 +41,4 @@ public class Stock {
 	public void setMagni(int magni) {
 		this.magni = magni;
 	}
-	
-	
 }
