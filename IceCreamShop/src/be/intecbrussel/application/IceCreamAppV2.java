@@ -17,7 +17,7 @@ public class IceCreamAppV2 {
 		
 		IceCreamCar iceDreamCar = new IceCreamCar(new PriceList(1.5 , 1.0 , 2.0) , new Stock(2 , 2 , 0 , 2));
 	
-		Eatable iceCream1 = iceDreamCar.orderCone(new Flavor [] {Flavor.BANANA,Flavor.BANANA,Flavor.STRAWBERRY});
+		Eatable iceCream1 = iceDreamCar.orderCone(new Flavor [] {Flavor.BANANA,Flavor.CHOCOLATE});
 		Eatable iceCream2 = iceDreamCar.orderIceRocket();
 		Eatable iceCream3 = iceDreamCar.orderMagnum(MagnumType.ALPINENUTS);
 		
